@@ -53,6 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/fab_add"
+                android:onClick="readCode"
                 app:fab_size="mini"
                 app:fab_label="Ler Código" />
             <com.github.clans.fab.FloatingActionButton
