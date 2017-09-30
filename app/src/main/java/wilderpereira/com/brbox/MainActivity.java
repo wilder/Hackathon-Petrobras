@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                     .title("RecyKing")
                     .snippet("Daniel Oliveira"))
                     .setIcon(BitmapDescriptorFactory
-                            .fromResource(R.drawable.ic_audiotrack));
+                            .fromResource(R.drawable.ic_audiotrack_dark));
 
             // For zooming automatically to the location of the marker
             CameraPosition cameraPosition = new CameraPosition.Builder().target(mLocation).zoom(12).build();
@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                     .title("RecyKing")
                     .snippet("Wilder Pereira"))
                     .setIcon(BitmapDescriptorFactory
-                            .fromResource(R.drawable.ic_audiotrack));
+                            .fromResource(R.drawable.ic_audiotrack_dark));
 
             mLocation2 = new LatLng(-23.5996933,-46.62317529999996);
             googleMap.addMarker(new MarkerOptions()
@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                     .title("RecyQueen")
                     .snippet("Kesia Ventura"))
                     .setIcon(BitmapDescriptorFactory
-                            .fromResource(R.drawable.ic_audiotrack));
+                            .fromResource(R.drawable.ic_audiotrack_dark));
 
 
             mLocation2 = new LatLng(-23.4722745,-46.669822599999975);
@@ -177,7 +177,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                     .title("RecyKing")
                     .snippet("Wilder Pereira"))
                     .setIcon(BitmapDescriptorFactory
-                            .fromResource(R.drawable.ic_audiotrack));
+                            .fromResource(R.drawable.ic_audiotrack_dark));
 
             mLocation2 = new LatLng(-23.5584042,-46.68748900000003);
             googleMap.addMarker(new MarkerOptions()
@@ -185,7 +185,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                     .title("RecyQueen")
                     .snippet("Julio Cesar"))
                     .setIcon(BitmapDescriptorFactory
-                            .fromResource(R.drawable.ic_audiotrack));
+                            .fromResource(R.drawable.ic_audiotrack_dark));
 
             mLocation2 = new LatLng(-23.5931297,-46.63511790000001);
             googleMap.addMarker(new MarkerOptions()
@@ -193,63 +193,63 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                     .title("RecyKing")
                     .snippet("Wilder Pereira"))
                     .setIcon(BitmapDescriptorFactory
-                            .fromResource(R.drawable.ic_audiotrack));
+                            .fromResource(R.drawable.ic_audiotrack_dark));
             mLocation2 = new LatLng(-23.5299194,-46.58302359999999);
             googleMap.addMarker(new MarkerOptions()
                     .position(mLocation2)
                     .title("RecyQueen")
                     .snippet("Kesia Ventura"))
                     .setIcon(BitmapDescriptorFactory
-                            .fromResource(R.drawable.ic_audiotrack));
+                            .fromResource(R.drawable.ic_audiotrack_dark));
             mLocation2 = new LatLng(-23.6532661,-46.64945510000001);
             googleMap.addMarker(new MarkerOptions()
                     .position(mLocation2)
                     .title("RecyKing")
                     .snippet("Wilder Pereira"))
                     .setIcon(BitmapDescriptorFactory
-                            .fromResource(R.drawable.ic_audiotrack));
+                            .fromResource(R.drawable.ic_audiotrack_dark));
             mLocation2 = new LatLng(-23.6117038,-46.6446474);
             googleMap.addMarker(new MarkerOptions()
                     .position(mLocation2)
                     .title("RecyKing")
                     .snippet("Diego Moreno"))
                     .setIcon(BitmapDescriptorFactory
-                            .fromResource(R.drawable.ic_audiotrack));
+                            .fromResource(R.drawable.ic_audiotrack_dark));
             mLocation2 = new LatLng(-23.5506966,-46.52565129999999);
             googleMap.addMarker(new MarkerOptions()
                     .position(mLocation2)
                     .title("RecyKing")
                     .snippet("John Doe"))
                     .setIcon(BitmapDescriptorFactory
-                            .fromResource(R.drawable.ic_audiotrack));
+                            .fromResource(R.drawable.ic_audiotrack_dark));
             mLocation2 = new LatLng(-23.664129,-46.77536629999997);
             googleMap.addMarker(new MarkerOptions()
                     .position(mLocation2)
                     .title("RecyKing")
                     .snippet("Diego Moreno"))
                     .setIcon(BitmapDescriptorFactory
-                            .fromResource(R.drawable.ic_audiotrack));
+                            .fromResource(R.drawable.ic_audiotrack_dark));
             mLocation2 = new LatLng(-23.6729898,-46.7910445);
             googleMap.addMarker(new MarkerOptions()
                     .position(mLocation2)
                     .title("RecyKing")
                     .snippet("John Doe"))
                     .setIcon(BitmapDescriptorFactory
-                            .fromResource(R.drawable.ic_audiotrack));
+                            .fromResource(R.drawable.ic_audiotrack_dark));
             mLocation2 = new LatLng(-23.6384647,-46.75496780000003);
             googleMap.addMarker(new MarkerOptions()
                     .position(mLocation2)
                     .title("RecyKing")
                     .snippet("John Doe"))
                     .setIcon(BitmapDescriptorFactory
-                            .fromResource(R.drawable.ic_audiotrack));
+                            .fromResource(R.drawable.ic_audiotrack_dark));
             mLocation2 = new LatLng(-23.638313,-46.74193630000002);
             googleMap.addMarker(new MarkerOptions()
                     .position(mLocation2)
                     .title("Recyking")
                     .snippet("John Doe"))
                     .setIcon(BitmapDescriptorFactory
-                            .fromResource(R.drawable.ic_audiotrack));
+                            .fromResource(R.drawable.ic_audiotrack_dark));
 
             mLocation2 = new LatLng(-23.622432,-46.72546990000001);
             googleMap.addMarker(new MarkerOptions()
@@ -257,7 +257,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                     .title("Recyking")
                     .snippet("John Doe"))
                     .setIcon(BitmapDescriptorFactory
-                            .fromResource(R.drawable.ic_audiotrack));
+                            .fromResource(R.drawable.ic_audiotrack_dark));
 
         }
 
