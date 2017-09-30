@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -38,6 +40,9 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     private Location mLastLocation;
     LatLng mLocation;
     private GoogleMap mMap;
+    private double longitude;
+    private double latitude;
+    LocationManager lm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -145,6 +150,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
+
+        if(lm==null)
+            lm = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
+
         mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
                 mGoogleApiClient);
         if (mLastLocation != null) {
@@ -279,8 +288,31 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 2000, 10, locationListener);
 
     }
+
+    private final LocationListener locationListener = new LocationListener() {
+        public void onLocationChanged(Location location) {
+            longitude = location.getLongitude();
+            latitude = location.getLatitude();
+        }
+
+        @Override
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+
+        }
+
+        @Override
+        public void onProviderEnabled(String provider) {
+
+        }
+
+        @Override
+        public void onProviderDisabled(String provider) {
+
+        }
+    };
 
     @Override
     public void onConnectionSuspended(int i) {
