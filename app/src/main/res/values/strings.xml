@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">BrBox</string>
+    <string name="navigation_drawer_open">open</string>
+    <string name="navigation_drawer_close">close</string>
+    <string name="action_settings">configurações</string>
 </resources>
