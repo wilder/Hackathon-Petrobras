@@ -20,6 +20,7 @@ class LoginActivity : AppCompatActivity() {
         if (user != null || !user?.username.isNullOrBlank()) {
             val intent = Intent(this@LoginActivity, MainActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
         setContentView(R.layout.activity_login)

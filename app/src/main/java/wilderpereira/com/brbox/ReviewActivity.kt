@@ -32,6 +32,7 @@ class ReviewActivity : AppCompatActivity() {
         simpleAlert.setButton(AlertDialog.BUTTON_POSITIVE, "OK", {
             dialogInterface, i ->
             startActivity(Intent(this@ReviewActivity, MainActivity::class.java))
+            finish()
         })
 
 

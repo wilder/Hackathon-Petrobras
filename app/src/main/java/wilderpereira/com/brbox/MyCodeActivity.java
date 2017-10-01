@@ -54,6 +54,7 @@ public class MyCodeActivity extends AppCompatActivity {
                     user.setScore(retrievedUser.getScore()+10);
                     new PreferencesManager(context).setUser(user);
                     startActivity(new Intent(MyCodeActivity.this, ReviewActivity.class));
+                    finish();
                 }
             }
 
