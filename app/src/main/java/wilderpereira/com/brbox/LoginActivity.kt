@@ -25,7 +25,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun writeNewUser(name: String, email: String, password: String) {
-        val user = User(name.substring(0, name.indexOf("@")), email, password, 0, 1)
+        val user = User(name.substring(0, name.indexOf("@")), email, password, 0, 1, "")
         mDatabase?.child("users")?.child(password)?.setValue(user)
         PreferencesManager(this@LoginActivity).user = user
     }

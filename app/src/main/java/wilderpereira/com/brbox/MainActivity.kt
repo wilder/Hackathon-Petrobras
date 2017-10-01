@@ -366,7 +366,7 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
     }
 
     fun checkin(view: View) {
-        credit(10)
+        startActivity(Intent(this@MainActivity, MyCodeActivity::class.java))
     }
 
 }

@@ -15,6 +15,21 @@ public class User implements Parcelable {
     String userId;
     Integer score;
     Integer level;
+    String message;
+
+
+    public User () {
+
+    }
+
+    public User(String username, String email, String userId, Integer score, Integer level, String message) {
+        this.username = username;
+        this.email = email;
+        this.userId = userId;
+        this.score = score;
+        this.level = level;
+        this.message = message;
+    }
 
     public String getUsername() {
         return username;
@@ -56,16 +71,12 @@ public class User implements Parcelable {
         this.level = level;
     }
 
-    public User () {
-
+    public String getMessage() {
+        return message;
     }
 
-    public User(String username, String email, String userId, Integer score, Integer level) {
-        this.username = username;
-        this.email = email;
-        this.userId = userId;
-        this.score = score;
-        this.level = level;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     @Override
@@ -80,6 +91,7 @@ public class User implements Parcelable {
         dest.writeString(this.userId);
         dest.writeValue(this.score);
         dest.writeValue(this.level);
+        dest.writeString(this.message);
     }
 
     protected User(Parcel in) {
@@ -88,6 +100,7 @@ public class User implements Parcelable {
         this.userId = in.readString();
         this.score = (Integer) in.readValue(Integer.class.getClassLoader());
         this.level = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.message = in.readString();
     }
 
     public static final Parcelable.Creator<User> CREATOR = new Parcelable.Creator<User>() {
@@ -101,16 +114,4 @@ public class User implements Parcelable {
             return new User[size];
         }
     };
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "username='" + username + '\'' +
-                ", email='" + email + '\'' +
-                ", userId='" + userId + '\'' +
-                ", score=" + score +
-                ", level=" + level +
-                '}';
-    }
-
 }
