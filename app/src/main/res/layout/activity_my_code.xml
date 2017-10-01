@@ -37,10 +37,7 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            tools:text="Pontos"
-            tools:layout_editor_absoluteY="28dp"
-            tools:layout_editor_absoluteX="199dp" />
+            android:text="Pontos" />
 
     </LinearLayout>
     
