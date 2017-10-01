@@ -27,7 +27,7 @@ class ReviewActivity : AppCompatActivity() {
 
         val simpleAlert = AlertDialog.Builder(this@ReviewActivity).create()
         simpleAlert.setTitle("Parabéns")
-        simpleAlert.setMessage("Você ganhou 5 pontos")
+        simpleAlert.setMessage("Você ganhou 2 pontos")
 
         simpleAlert.setButton(AlertDialog.BUTTON_POSITIVE, "OK", {
             dialogInterface, i ->

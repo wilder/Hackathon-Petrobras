@@ -27,6 +27,11 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun goToMain(view: View) {
+
+        if (et_email.text.toString().isNullOrBlank() || !et_email.text.toString().contains("@") || et_pass.text.toString().isNullOrBlank()) {
+            return
+        }
+
         mDatabase = FirebaseDatabase.getInstance().reference
         writeNewUser(et_email.text.toString(), et_email.text.toString(), et_pass.text.toString())
         val intent = Intent(this@LoginActivity, MainActivity::class.java)
