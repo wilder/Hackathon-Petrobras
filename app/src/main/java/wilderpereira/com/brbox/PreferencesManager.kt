@@ -16,8 +16,8 @@ class PreferencesManager (context: Context) {
     val INTRO_KEY = "intro_key"
     val prefs: SharedPreferences = context.getSharedPreferences(PREFS_FILENAME, 0);
 
-    var user: User
-        get() = Gson().fromJson(prefs.getString(USER_ID, Gson().toJson(null)), User::class.java)
+    var user: User?
+        get() = Gson().fromJson(prefs.getString(USER_ID, ""), User::class.java)
         set(user) = prefs.edit().putString(USER_ID, Gson().toJson(user)).apply()
 
 

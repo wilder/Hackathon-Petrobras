@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
         setContentView(R.layout.activity_main)
         context = this
 
-        user = PreferencesManager(this@MainActivity).user
+        user = PreferencesManager(this@MainActivity).user!!
 
         mDatabase = FirebaseDatabase.getInstance().reference.child("users")?.child(user.userId)!!
         mDatabase?.addValueEventListener(UserListener(this@MainActivity))
@@ -265,7 +265,7 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
     }
 
     private fun credit(value: Int) {
-        user = PreferencesManager(this@MainActivity).user
+        user = PreferencesManager(this@MainActivity).user!!
         val mDatabase = FirebaseDatabase.getInstance().reference
         mDatabase.child("users")?.child(user.userId)?.child("score")?.setValue(user.score - value)
     }

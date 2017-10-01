@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,6 +22,8 @@ public class MyCodeActivity extends Activity {
     DatabaseReference mDatabase;
     User user;
     Context context;
+    TextView scoreAmount;
+    TextView credits;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -30,13 +33,24 @@ public class MyCodeActivity extends Activity {
         context = this;
         user = new PreferencesManager(context).getUser();
 
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(user.userId).child("message");
+        scoreAmount = (TextView) findViewById(R.id.scorePay);
+        credits = (TextView) findViewById(R.id.credit);
+
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(user.userId);
+
+        scoreAmount.setText(user.getScore().toString());
+        credits.setText(user.getCredits().toString());
+
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String s = (String) dataSnapshot.getValue();
-                if (!user.getMessage().equals(s)) {
-                    user.setMessage(s);
+                User retrievedUser = (User) dataSnapshot.getValue(User.class);
+                if (!user.getMessage().equals(retrievedUser.getMessage())) {
+                    user.setMessage(retrievedUser.getMessage());
+                    mDatabase.child("credits").setValue(retrievedUser.getCredits()-10d);
+                    mDatabase.child("score").setValue(retrievedUser.getScore()+10);
+                    user.setCredits(retrievedUser.getCredits()-10d);
+                    user.setScore(retrievedUser.getScore()+10);
                     new PreferencesManager(context).setUser(user);
                     startActivity(new Intent(MyCodeActivity.this, ReviewActivity.class));
                 }

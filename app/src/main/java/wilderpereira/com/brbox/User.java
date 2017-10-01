@@ -16,19 +16,20 @@ public class User implements Parcelable {
     Integer score;
     Integer level;
     String message;
+    Double credits;
 
-
-    public User () {
-
-    }
-
-    public User(String username, String email, String userId, Integer score, Integer level, String message) {
+    public User(String username, String email, String userId, Integer score, Integer level, String message, Double credits) {
         this.username = username;
         this.email = email;
         this.userId = userId;
         this.score = score;
         this.level = level;
         this.message = message;
+        this.credits = credits;
+    }
+
+    public User () {
+
     }
 
     public String getUsername() {
@@ -79,6 +80,14 @@ public class User implements Parcelable {
         this.message = message;
     }
 
+    public Double getCredits() {
+        return credits;
+    }
+
+    public void setCredits(Double credits) {
+        this.credits = credits;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -92,6 +101,7 @@ public class User implements Parcelable {
         dest.writeValue(this.score);
         dest.writeValue(this.level);
         dest.writeString(this.message);
+        dest.writeValue(this.credits);
     }
 
     protected User(Parcel in) {
@@ -101,6 +111,7 @@ public class User implements Parcelable {
         this.score = (Integer) in.readValue(Integer.class.getClassLoader());
         this.level = (Integer) in.readValue(Integer.class.getClassLoader());
         this.message = in.readString();
+        this.credits = (Double) in.readValue(Double.class.getClassLoader());
     }
 
     public static final Parcelable.Creator<User> CREATOR = new Parcelable.Creator<User>() {

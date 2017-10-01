@@ -21,7 +21,7 @@ class ReviewActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_review)
 
-        user = PreferencesManager(this@ReviewActivity).user
+        user = PreferencesManager(this@ReviewActivity).user!!
 
         mDatabase = FirebaseDatabase.getInstance().reference
 
@@ -47,7 +47,7 @@ class ReviewActivity : AppCompatActivity() {
     }
 
     private fun credit(userid: String, value: Int) {
-        user = PreferencesManager(this@ReviewActivity).user
+        user = PreferencesManager(this@ReviewActivity).user!!
         val mDatabase = FirebaseDatabase.getInstance().reference
         mDatabase.child("users")?.child(userid)?.child("score")?.setValue(user.score + value-3)
         user.setScore(user.score+value)

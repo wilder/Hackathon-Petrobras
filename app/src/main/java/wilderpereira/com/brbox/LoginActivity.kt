@@ -15,9 +15,9 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val user = PreferencesManager(this).user
+        val user = PreferencesManager(this@LoginActivity).user
 
-        if (user != null || !user.username.isNullOrBlank()) {
+        if (user != null || !user?.username.isNullOrBlank()) {
             val intent = Intent(this@LoginActivity, MainActivity::class.java)
             startActivity(intent)
         }
@@ -33,7 +33,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun writeNewUser(name: String, email: String, password: String) {
-        val user = User(name.substring(0, name.indexOf("@")), email, password, 0, 1, "")
+        val user = User(name.substring(0, name.indexOf("@")), email, password, 0, 1, "", 50.0)
         mDatabase?.child("users")?.child(password)?.setValue(user)
         PreferencesManager(this@LoginActivity).user = user
     }
