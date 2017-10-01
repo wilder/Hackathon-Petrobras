@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
+import android.net.Uri
 import android.support.design.widget.NavigationView
 import android.support.v4.app.ActivityCompat
 import android.support.v4.widget.DrawerLayout
@@ -221,6 +222,15 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when (item.getItemId()) {
+            R.id.nav_transp -> {
+                val gmmIntentUri = Uri.parse("geo:0,0?q=Cristo+Redentor,Rio+de+Janeiro&mode=d")
+                val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+                mapIntent.`package` = "com.google.android.apps.maps"
+                startActivity(mapIntent)
+            }
+        }
+        return true
         return false
     }
 
