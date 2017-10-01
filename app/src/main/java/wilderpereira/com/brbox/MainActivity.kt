@@ -159,11 +159,73 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
             mLocation = LatLng(mLastLocation!!.latitude, mLastLocation!!.longitude)
             googleMap!!.addMarker(MarkerOptions()
                     .position(mLocation)
-                    .title("RecyKing")
-                    .snippet("Daniel Oliveira"))
+                    .title("Maior Comsumidor")
+                    .snippet("Julio César\n"))
                     .setIcon(BitmapDescriptorFactory
-                            .fromResource(R.drawable.ic_audiotrack_dark))
+                            .fromResource(R.drawable.pin))
 
+            var mLocation2 = LatLng(-22.933118, -43.182134)
+            googleMap!!.addMarker(MarkerOptions()
+                    .position(mLocation2)
+                    .title("Maior Consumidor")
+                    .snippet("Wilder Pereira"))
+                    .setIcon(BitmapDescriptorFactory
+                            .fromResource(R.drawable.pin))
+
+            mLocation2 = LatLng(-22.940232, -43.170890)
+            googleMap!!.addMarker(MarkerOptions()
+                    .position(mLocation2)
+                    .title("Maior Consumidor")
+                    .snippet("Kesia Ventura"))
+                    .setIcon(BitmapDescriptorFactory
+                            .fromResource(R.drawable.pin))
+
+
+            mLocation2 = LatLng(22.930825, -43.173379)
+            googleMap!!.addMarker(MarkerOptions()
+                    .position(mLocation2)
+                    .title("Maior Consumidor")
+                    .snippet("Wilder Pereira"))
+                    .setIcon(BitmapDescriptorFactory
+                            .fromResource(R.drawable.pin))
+
+            mLocation2 = LatLng(-22.914435, -43.214490)
+            googleMap!!.addMarker(MarkerOptions()
+                    .position(mLocation2)
+                    .title("Maior Consumidor")
+                    .snippet("Julio Cesar"))
+                    .setIcon(BitmapDescriptorFactory
+                            .fromResource(R.drawable.pin))
+
+            mLocation2 = LatLng(-22.913012, -43.169171)
+            googleMap!!.addMarker(MarkerOptions()
+                    .position(mLocation2)
+                    .title("Maior Consumidor")
+                    .snippet("Wilder Pereira"))
+                    .setIcon(BitmapDescriptorFactory
+                            .fromResource(R.drawable.pin))
+            mLocation2 = LatLng(-22.952061, -43.181703)
+            googleMap!!.addMarker(MarkerOptions()
+                    .position(mLocation2)
+                    .title("Maior Consumidor")
+                    .snippet("Kesia Ventura"))
+                    .setIcon(BitmapDescriptorFactory
+                            .fromResource(R.drawable.pin))
+            mLocation2 = LatLng(22.953168, -43.170888)
+            googleMap!!.addMarker(MarkerOptions()
+                    .position(mLocation2)
+                    .title("Maior Consumidor")
+                    .snippet("Wilder Pereira"))
+                    .setIcon(BitmapDescriptorFactory
+                            .fromResource(R.drawable.pin))
+            mLocation2 = LatLng(-22.911115, -43.172090)
+            googleMap!!.addMarker(MarkerOptions()
+                    .position(mLocation2)
+                    .title("Maior Consumidor")
+                    .snippet("Katarina Massako"))
+                    .setIcon(BitmapDescriptorFactory
+                            .fromResource(R.drawable.pin))
+            
             // For zooming automatically to the location of the marker
             val cameraPosition = CameraPosition.Builder().target(mLocation).zoom(12f).build()
             //mMap.moveCamera(CameraUpdateFactory.newLatLng(mLocation));
