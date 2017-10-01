@@ -183,8 +183,9 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
 
         val username = header.findViewById(R.id.usernamee) as TextView
         val score = header.findViewById(R.id.scoree) as TextView
+        val credits = header.findViewById(R.id.credit) as TextView
 
-        mDatabase?.addValueEventListener(UserDrawerListener(this@MainActivity, username, score))
+        mDatabase?.addValueEventListener(UserDrawerListener(this@MainActivity, username, score, credits))
 
 
         lm!!.requestLocationUpdates(LocationManager.GPS_PROVIDER, 2000, 10f, locationListener)

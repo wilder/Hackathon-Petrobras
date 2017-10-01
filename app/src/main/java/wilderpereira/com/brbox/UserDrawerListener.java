@@ -19,12 +19,14 @@ public class UserDrawerListener implements ValueEventListener{
     PreferencesManager preferencesManager;
     TextView username;
     TextView score;
+    TextView credits;
 
-    public UserDrawerListener(Context context, TextView username, TextView score) {
+    public UserDrawerListener(Context context, TextView username, TextView score, TextView credits) {
         this.context = context;
         preferencesManager = new PreferencesManager(context);
         this.username = username;
         this.score = score;
+        this.credits = credits;
     }
 
     @Override
@@ -32,6 +34,7 @@ public class UserDrawerListener implements ValueEventListener{
         User user = dataSnapshot.getValue(User.class);
         username.setText(user.getUsername());
         score.setText(user.getScore().toString());
+        credits.setText(user.getCredits().toString());
     }
 
     @Override
