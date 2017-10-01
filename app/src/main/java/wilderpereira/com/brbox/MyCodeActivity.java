@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -17,7 +18,7 @@ import com.google.firebase.database.ValueEventListener;
  * Created by Wilder on 01/10/17.
  */
 
-public class MyCodeActivity extends Activity {
+public class MyCodeActivity extends AppCompatActivity {
 
     DatabaseReference mDatabase;
     User user;
