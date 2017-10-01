@@ -17,7 +17,6 @@ class PreferencesManager (context: Context) {
     val prefs: SharedPreferences = context.getSharedPreferences(PREFS_FILENAME, 0);
 
     var user: User
-            //TODO: check if null is a problem
         get() = Gson().fromJson(prefs.getString(USER_ID, Gson().toJson(null)), User::class.java)
         set(user) = prefs.edit().putString(USER_ID, Gson().toJson(user)).apply()
 

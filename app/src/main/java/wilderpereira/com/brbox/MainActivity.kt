@@ -16,7 +16,6 @@ import android.os.Bundle
 import android.support.v7.widget.Toolbar
 import android.util.Log
 import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 
@@ -27,7 +26,6 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.MapsInitializer
-import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
@@ -37,6 +35,7 @@ import com.google.firebase.database.FirebaseDatabase
 
 class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, NavigationView.OnNavigationItemSelectedListener {
 
+    lateinit var mDatabase: DatabaseReference
     lateinit var user: User
     lateinit var mMapView: MapView
     lateinit var context: Context
@@ -56,6 +55,9 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
         context = this
 
         user = PreferencesManager(this@MainActivity).user
+
+        mDatabase = FirebaseDatabase.getInstance().reference.child("users")?.child(user.userId)!!
+        mDatabase?.addValueEventListener(UserListener(this@MainActivity))
 
         toolbar = findViewById(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
@@ -343,7 +345,7 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
                 val format = intent.getStringExtra("SCAN_RESULT_FORMAT")
                 Log.i("Barcode Result", contents)
                 // Handle successful scan
-                debit(10)
+                credit(10)
             } else if (resultCode == Activity.RESULT_CANCELED) {
                 // Handle cancel
                 Log.i("Barcode Result", "Result canceled")
@@ -357,11 +359,14 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
         startActivityForResult(intent, 0)
     }
 
-    private fun debit(value: Int) {
-        val user = PreferencesManager(this@MainActivity).user
+    private fun credit(value: Int) {
+        user = PreferencesManager(this@MainActivity).user
         val mDatabase = FirebaseDatabase.getInstance().reference
         mDatabase.child("users")?.child(user.userId)?.child("score")?.setValue(user.score - value)
+    }
 
+    fun checkin(view: View) {
+        credit(10)
     }
 
 }
