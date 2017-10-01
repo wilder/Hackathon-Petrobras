@@ -38,6 +38,7 @@
             tools:layout_editor_absoluteX="8dp" />
 
         <Button
+            android:backgroundTint="@color/colorAccent"
             android:onClick="checkin"
             android:id="@+id/checkin"
             android:text="realizar pagamento"
