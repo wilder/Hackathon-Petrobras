@@ -1,8 +1,11 @@
 package wilderpereira.com.brbox
 
+import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
 import android.view.View
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -14,6 +17,24 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this@LoginActivity, arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), 0)
+
+        }
+
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this@LoginActivity as Activity, arrayOf(android.Manifest.permission.ACCESS_COARSE_LOCATION), 0)
+
+        }
+
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this@LoginActivity as Activity, arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), 0)
+
+        }
 
         val user = PreferencesManager(this@LoginActivity).user
 
