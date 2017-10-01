@@ -14,6 +14,14 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val user = PreferencesManager(this).user
+
+        if (user != null || !user.username.isNullOrBlank()) {
+            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+            startActivity(intent)
+        }
+
         setContentView(R.layout.activity_login)
     }
 

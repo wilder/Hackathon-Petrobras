@@ -1,6 +1,7 @@
 package wilderpereira.com.brbox;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -19,13 +20,15 @@ public class MyCodeActivity extends Activity {
 
     DatabaseReference mDatabase;
     User user;
+    Context context;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_code);
 
-        user = new PreferencesManager(this).getUser();
+        context = this;
+        user = new PreferencesManager(context).getUser();
 
         mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(user.userId).child("message");
         mDatabase.addValueEventListener(new ValueEventListener() {
@@ -33,6 +36,8 @@ public class MyCodeActivity extends Activity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String s = (String) dataSnapshot.getValue();
                 if (!user.getMessage().equals(s)) {
+                    user.setMessage(s);
+                    new PreferencesManager(context).setUser(user);
                     startActivity(new Intent(MyCodeActivity.this, ReviewActivity.class));
                 }
             }
